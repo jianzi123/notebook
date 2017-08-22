@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jupyter VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-08 21:52-0500\n"
+"POT-Creation-Date: 2017-08-21 07:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,16 +19,16 @@ msgstr ""
 
 #: notebook/notebookapp.py:53
 msgid "The Jupyter Notebook requires tornado >= 4.0"
-msgstr ""
+msgstr "该程序要求 tornado 版本 >= 4.0"
 
 #: notebook/notebookapp.py:57
 msgid "The Jupyter Notebook requires tornado >= 4.0, but you have < 1.1.0"
-msgstr ""
+msgstr "该程序要求 tornado 版本 >= 4.0, 可是现实却是 < 1.1.0"
 
 #: notebook/notebookapp.py:59
 #, python-format
 msgid "The Jupyter Notebook requires tornado >= 4.0, but you have %s"
-msgstr ""
+msgstr "该程序要求 tornado 版本 >= 4.0, 可是现实却是 %s"
 
 #: notebook/notebookapp.py:209
 msgid "The `ignore_minified_js` flag is deprecated and no longer works."
@@ -425,56 +425,57 @@ msgstr ""
 
 #: notebook/notebookapp.py:1369
 #, python-format
-msgid "Shutting down %d kernels"
-msgstr ""
-
-#: notebook/notebookapp.py:1375
-#, python-format
-msgid "%d active kernel"
-msgid_plural "%d active kernels"
+msgid "Shutting down %d kernel"
+msgid_plural "Shutting down %d kernels"
 msgstr[0] ""
 msgstr[1] ""
 
-#: notebook/notebookapp.py:1379
+#: notebook/notebookapp.py:1377
+#, python-format
+msgid "%d active kernel"
+msgid_plural "%d active kernels"
+msgstr[0] "%d 活跃的服务"
+msgstr[1] "%d 活跃的服务"
+
+#: notebook/notebookapp.py:1381
 #, python-format
 msgid ""
 "The Jupyter Notebook is running at:\n"
-"\r"
 "%s"
-msgstr ""
+msgstr "本程序运行在: %s"
 
-#: notebook/notebookapp.py:1426
+#: notebook/notebookapp.py:1428
 msgid "Running as root is not recommended. Use --allow-root to bypass."
-msgstr ""
-
-#: notebook/notebookapp.py:1432
-msgid "Use Control-C to stop this server and shut down all kernels (twice to skip confirmation)."
-msgstr ""
+msgstr "不建议以root身份运行.使用--allow-root绕过过."
 
 #: notebook/notebookapp.py:1434
-msgid "Welcome to Project Jupyter! Explore the various tools available and their corresponding documentation. If you are interested in contributing to the platform, please visit the communityresources section at http://jupyter.org/community.html."
-msgstr ""
+msgid "Use Control-C to stop this server and shut down all kernels (twice to skip confirmation)."
+msgstr "使用control-c停止此服务器并关闭所有内核(两次跳过确认)."
 
-#: notebook/notebookapp.py:1445
+#: notebook/notebookapp.py:1436
+msgid "Welcome to Project Jupyter! Explore the various tools available and their corresponding documentation. If you are interested in contributing to the platform, please visit the communityresources section at http://jupyter.org/community.html."
+msgstr "欢迎来到项目Jupyter! 探索可用的各种工具及其相应的文档. 如果你有兴趣对这个平台,请访问http://jupyter.org/community.html community resources部分."
+
+#: notebook/notebookapp.py:1447
 #, python-format
 msgid "No web browser found: %s."
-msgstr ""
+msgstr "没有找到web浏览器: %s."
 
-#: notebook/notebookapp.py:1450
+#: notebook/notebookapp.py:1452
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s 不存在"
 
-#: notebook/notebookapp.py:1484
+#: notebook/notebookapp.py:1486
 msgid "Interrupted..."
-msgstr ""
+msgstr "已经中断..."
 
-#: notebook/services/contents/filemanager.py:506
+#: notebook/services/contents/filemanager.py:522
 #, python-format
 msgid "Serving notebooks from local directory: %s"
-msgstr ""
+msgstr "启动notebooks 在本地路径: %s"
 
-#: notebook/services/contents/manager.py:68
+#: notebook/services/contents/manager.py:69
 msgid "Untitled"
-msgstr ""
+msgstr "未命名"
 

@@ -19,6 +19,7 @@ define([
        *  or the filepath itself if no dots present.
        *  Empty string if the filepath ends with a dot.
        **/
+      console.log(path);
       var parts = path.split('.');
       return parts[parts.length-1];
     };
@@ -93,6 +94,7 @@ define([
         }
         this.notebooks_list = [];
         this.sessions = {};
+        this.active = "notebooklist";
         this.base_url = options.base_url || utils.get_body_data("baseUrl");
         this.notebook_path = options.notebook_path || utils.get_body_data("notebookPath");
         this.contents = options.contents;
@@ -367,6 +369,7 @@ define([
     var type_order = {'directory':0,'notebook':1,'file':2};
 
     NotebookList.prototype.draw_notebook_list = function (list, error_msg) {
+//        console.log(list);
         // Remember what was selected before the refresh.
         var selected_before = this.selected;
 
@@ -568,8 +571,9 @@ define([
         var has_file = false;
         var that = this;
         var checked = 0;
-        $('.list_item :checked').each(function(index, item) {
-            var parent = $(item).parent().parent();
+        $('div#notebook_list .list_item :checked').each(function(index, item) {
+            if(that.active == 'notebooklist') {
+               var parent = $(item).parent().parent();
 
             // If the item doesn't have an upload button, isn't the
             // breadcrumbs and isn't the parent folder '..', then it can be selected.
@@ -589,11 +593,40 @@ define([
                 has_file = has_file || (parent.data('type') === 'file');
                 has_directory = has_directory || (parent.data('type') === 'directory');
             }
+            }
+
         });
+
+        $('div#running_list .list_item :checked').each(function(index, item) {
+            if(that.active == 'kernellist') {
+                var parent = $(item).parent().parent();
+
+            // If the item doesn't have an upload button, isn't the
+            // breadcrumbs and isn't the parent folder '..', then it can be selected.
+            // Breadcrumbs path == ''.
+            if (parent.find('.upload_button').length === 0 && parent.data('path') !== '' && parent.data('path') !== utils.url_path_split(that.notebook_path)[0]) {
+                checked++;
+                selected.push({
+                    name: parent.data('name'),
+                    path: parent.data('path'),
+                    type: parent.data('type')
+                });
+
+                // Set flags according to what is selected.  Flags are later
+                // used to decide which action buttons are visible.
+                has_running_notebook = has_running_notebook ||
+                    (parent.data('type') === 'notebook' && that.sessions[parent.data('path')] !== undefined);
+                has_file = has_file || (parent.data('type') === 'file');
+                has_directory = has_directory || (parent.data('type') === 'directory');
+            }
+            }
+
+        });
+
         this.selected = selected;
 
         // Rename is only visible when one item is selected, and it is not a running notebook
-        if (selected.length === 1 && !has_running_notebook) {
+        if (selected.length === 1 && !has_running_notebook && this.active == "notebooklist") {
             $('.rename-button').css('display', 'inline-block');
         } else {
             $('.rename-button').css('display', 'none');
@@ -601,7 +634,7 @@ define([
 
         // Move is visible if at least one item is selected, and none of them
         // are a running notebook.
-        if (selected.length > 0 && !has_running_notebook) {
+        if (selected.length > 0 && !has_running_notebook && this.active == "notebooklist") {
             $('.move-button').css('display', 'inline-block');
         } else {
             $('.move-button').css('display', 'none');
@@ -610,7 +643,7 @@ define([
         // Download is only visible when one item is selected, and it is not a
         // running notebook or a directory
         // TODO(nhdaly): Add support for download multiple items at once.
-        if (selected.length === 1 && !has_running_notebook && !has_directory) {
+        if (selected.length === 1 && !has_running_notebook && !has_directory && this.active == "notebooklist") {
             $('.download-button').css('display', 'inline-block');
         } else {
             $('.download-button').css('display', 'none');
@@ -618,14 +651,20 @@ define([
 
         // Shutdown is only visible when one or more notebooks running notebooks
         // are selected and no non-notebook items are selected.
-        if (has_running_notebook && !(has_file || has_directory)) {
-            $('.shutdown-button').css('display', 'inline-block');
-        } else {
+        //if (has_running_notebook && !(has_file || has_directory)) {
+        //    $('.shutdown-button').css('display', 'inline-block');
+        //} else {
             $('.shutdown-button').css('display', 'none');
+        //}
+        if (selected.length === 1 && has_running_notebook && this.active == "kernellist"){
+            $('.shutdown-button-running').removeAttr('disabled');
         }
 
+        if (selected.length === 0 && has_running_notebook && this.active == "kernellist"){
+            $('.shutdown-button-running').attr('disabled', 'disabled');
+        }
         // Duplicate isn't visible when a directory is selected.
-        if (selected.length > 0 && !has_directory) {
+        if (selected.length > 0 && !has_directory && this.active == "notebooklist") {
             $('.duplicate-button').css('display', 'inline-block');
         } else {
             $('.duplicate-button').css('display', 'none');

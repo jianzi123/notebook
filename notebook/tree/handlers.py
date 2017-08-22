@@ -36,6 +36,9 @@ class TreeHandler(IPythonHandler):
 
     @web.authenticated
     def get(self, path=''):
+        print("get tree: path; ", path)
+        self.log.info("get tree %s", path)
+        self.log.warn("get tree %s", path)
         path = path.strip('/')
         cm = self.contents_manager
         
