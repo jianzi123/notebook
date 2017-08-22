@@ -554,7 +554,7 @@ class NotebookApp(JupyterApp):
         help=_("The default URL to redirect to from `/`")
     )
     
-    ip = Unicode('localhost', config=True,
+    ip = Unicode('0.0.0.0', config=True,
         help=_("The IP address the notebook server will listen on.")
     )
 
@@ -566,7 +566,7 @@ class NotebookApp(JupyterApp):
         """
         s = socket.socket()
         try:
-            s.bind(('localhost', 0))
+            s.bind(('0.0.0.0', 0))
         except socket.error as e:
             self.log.warning(_("Cannot bind to localhost, using 127.0.0.1 as default ip\n%s"), e)
             return '127.0.0.1'

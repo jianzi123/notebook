@@ -25,6 +25,9 @@ define([
             element_name: 'running'},
             options));
         this.kernelspecs = this.sessions = null;
+        this.active = "kernellist";
+        this.selected = [];
+        $('.shutdown-button-running').click($.proxy(this.shutdown_running_selected, this));
         this.events.on('kernelspecs_loaded.KernelSpec', $.proxy(this._kernelspecs_loaded, this));
     };
 
@@ -35,7 +38,20 @@ define([
          * do nothing
          */
     };
-    
+
+    KernelList.prototype.shutdown_running_selected = function() {
+        var that = this;
+        this.selected.forEach(function(item) {
+            if (item.type === 'notebook' && that.active == 'kernellist') {
+                that.shutdown_notebook(item.path);
+            }
+        });
+        // Deselect items after successful shutdown.
+        $('.shutdown-button-selected').removeAttr('disabled');
+        that.select('select-none');
+    };
+
+
     KernelList.prototype._kernelspecs_loaded = function (event, kernelspecs) {
         this.kernelspecs = kernelspecs;
         if (this.sessions) {
@@ -57,7 +73,7 @@ define([
                 continue;
             }
             session = d[path];
-            item = this.new_item(-1);
+            item = this.new_item(-1, true);
             info = this.kernelspecs[session.kernel.name];
             this.add_link({
                 name: path,

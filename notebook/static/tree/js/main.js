@@ -64,8 +64,7 @@ require([
         console.warn(err);
     }
 
-    console.log('Welcome to Project Jupyter! Explore the various tools available and their corresponding documentation. If you are interested in contributing to the platform, please visit the community resources section at http://jupyter.org/community.html.');
-
+    console.log('这个项目源自jupyternotebook，可以去http://jupyter.org/community.html 查看相关信息。');
 
     // Setup all of the config related things
 

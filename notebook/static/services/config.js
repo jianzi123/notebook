@@ -37,6 +37,7 @@ function(utils) {
     
     ConfigSection.prototype.load = function() {
         var that = this;
+        console.log(this.api_url());
         return utils.promising_ajax(this.api_url(), {
             cache: false,
             type: "GET",
