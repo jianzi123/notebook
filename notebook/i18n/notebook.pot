@@ -132,12 +132,12 @@ msgstr ""
 #: notebook/notebookapp.py:628
 #, python-format
 msgid "Writing notebook server cookie secret to %s"
-msgstr ""
+msgstr "把notebook 服务cookie密码写入 %s"
 
 #: notebook/notebookapp.py:635
 #, python-format
 msgid "Could not set permissions on %s"
-msgstr ""
+msgstr "不能在 %s 设置权限"
 
 #: notebook/notebookapp.py:640
 msgid ""
