@@ -1787,7 +1787,7 @@ msgstr "重启服务"
 #: notebook/static/notebook/js/main.min.js:42477
 #: notebook/static/notebook/js/notificationarea.js:129
 msgid "Kernel Restarting"
-msgstr "服务正重启""
+msgstr "服务正重启"
 
 #: notebook/static/notebook/js/main.min.js:42478
 #: notebook/static/notebook/js/notificationarea.js:130

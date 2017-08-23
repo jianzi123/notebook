@@ -132,12 +132,12 @@ msgstr ""
 #: notebook/notebookapp.py:628
 #, python-format
 msgid "Writing notebook server cookie secret to %s"
-msgstr ""
+msgstr "把notebook 服务cookie密码写入 %s"
 
 #: notebook/notebookapp.py:635
 #, python-format
 msgid "Could not set permissions on %s"
-msgstr ""
+msgstr "不能在 %s 设置权限"
 
 #: notebook/notebookapp.py:640
 msgid ""
@@ -403,15 +403,15 @@ msgstr ""
 
 #: notebook/notebookapp.py:1269
 msgid "Shutdown confirmed"
-msgstr ""
+msgstr "关闭已确认"
 
 #: notebook/notebookapp.py:1273
 msgid "No answer for 5s:"
-msgstr ""
+msgstr "等待5s: "
 
 #: notebook/notebookapp.py:1274
 msgid "resuming operation..."
-msgstr ""
+msgstr "重启操作..."
 
 #: notebook/notebookapp.py:1282
 #, python-format
@@ -421,14 +421,14 @@ msgstr ""
 #: notebook/notebookapp.py:1338
 #, python-format
 msgid "Error loading server extension %s"
-msgstr ""
+msgstr "加载服务%s 失败"
 
 #: notebook/notebookapp.py:1369
 #, python-format
 msgid "Shutting down %d kernel"
 msgid_plural "Shutting down %d kernels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "关闭 %d 内核"
+msgstr[1] "关闭 %d 内核"
 
 #: notebook/notebookapp.py:1377
 #, python-format
@@ -442,7 +442,9 @@ msgstr[1] "%d 活跃的服务"
 msgid ""
 "The Jupyter Notebook is running at:\n"
 "%s"
-msgstr "本程序运行在: %s"
+msgstr ""
+"本程序运行在: \n"
+"%s"
 
 #: notebook/notebookapp.py:1428
 msgid "Running as root is not recommended. Use --allow-root to bypass."

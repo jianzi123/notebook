@@ -66,6 +66,7 @@ from tornado.log import LogFormatter, app_log, access_log, gen_log
 from notebook import (
     DEFAULT_STATIC_FILES_PATH,
     DEFAULT_TEMPLATE_PATH_LIST,
+    DEFAULT_i18n_FILES_PATH,
     __version__,
 )
 
@@ -314,6 +315,11 @@ class NotebookWebApplication(web.Application):
             (r"/custom/(.*)", FileFindHandler, {
                 'path': settings['static_custom_path'],
                 'no_cache_paths': ['/'], # don't cache anything in custom
+            })
+        )
+        handlers.append(
+            (r"/i18n/(.*)", FileFindHandler, {
+                'path': [ DEFAULT_i18n_FILES_PATH ],
             })
         )
         # register base handlers last

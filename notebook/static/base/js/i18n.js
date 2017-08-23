@@ -15,10 +15,11 @@ define([
     var ui_lang = navigator.languages && navigator.languages[0] || // Chrome / Firefox
     navigator.language ||   // All browsers
     navigator.userLanguage; // IE <= 10
-    console.log(ui_lang);
+    console.log(ui_lang, nbjs.supported_languages);
     var init = function() {
     	var msg_promise;
     	if (nbjs.supported_languages.indexOf(ui_lang) >= 0) {
+		console.log("find...");
     		moment.locale(ui_lang);
     		msg_promise = new Promise( function (resolve, reject) {
     			require([i18nload.id+"!"+ui_lang], function (data) {
@@ -33,6 +34,7 @@ define([
     			});
     	   });
     	} else {
+		console.log("not find...");
     		msg_promise = new Promise( function (resolve, reject) {
 			    var newi18n = new Jed(nbjs);
 				newi18n._ = newi18n.gettext;
