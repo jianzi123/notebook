@@ -345,7 +345,7 @@ msgstr "运行此单元，选择以下选项"
 
 #: notebook/templates/notebook.html:194
 msgid "Run Cells and Select Below"
-msgstr ""
+msgstr "运行单元格并自动选择下一个"
 
 #: notebook/templates/notebook.html:195
 msgid "Run this cell, insert below"

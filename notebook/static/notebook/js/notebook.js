@@ -281,6 +281,14 @@ define([
     };
 
     /**
+    * Update title by renameing the notebook
+    */
+    Notebook.prototype.update_title = function(){
+        var that = this;
+        console.log("+++++++++++++++++", that.get_notebook_name())
+        $('#notebook_name_title').text(that.get_notebook_name());
+    };
+    /**
      * Bind JavaScript events: key presses and custom Jupyter events.
      */
     Notebook.prototype.bind_events = function () {

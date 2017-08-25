@@ -350,6 +350,8 @@ class IPythonHandler(AuthenticatedHandler):
     
     def get_template(self, name):
         """Return the jinja template object for a given name"""
+        self.log.debug("get_template settings: %r", self.settings['jinja2_env'])
+        self.log.debug("template: %r", self.settings['jinja2_env'].get_template(name))
         return self.settings['jinja2_env'].get_template(name)
     
     def render_template(self, name, **ns):

@@ -185,8 +185,9 @@ class NotebookWebApplication(web.Application):
         # that this is a dev install and suggest to the developer `npm run build:watch`.
         base_dir = os.path.realpath(os.path.join(__file__, '..', '..'))
         dev_mode = os.path.exists(os.path.join(base_dir, '.git'))
-
-        nbui = gettext.translation('nbui', localedir=os.path.join(base_dir, 'notebook/i18n'), fallback=True)
+        
+        log.info('translation:', base_dir)
+        nbui = gettext.translation('nbui', localedir=os.path.join(base_dir, 'notebook/i18n'), languages=['zh-CN'], fallback=True)
         env.install_gettext_translations(nbui, newstyle=False)
 
         if dev_mode:

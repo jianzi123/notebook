@@ -105,6 +105,7 @@ define([
                             that.notebook.rename(new_name).then(
                                 function () {
                                     d.modal('hide');
+				    that.notebook.update_title();
                                 }, function (error) {
                                     d.find('.rename-message').text(error.message || i18n.msg._('Unknown error'));
                                     d.find('input[type="text"]').prop('disabled', false).focus().select();

@@ -157,6 +157,7 @@ define([
         },
         'run-cell':{
             cmd: i18n.msg._('run selected cells'),
+            icon: 'fa-play',
             help    : i18n.msg._('run selected cells'),
             help_index : 'bb',
             handler : function (env) {
@@ -492,6 +493,7 @@ define([
         },
         'delete-cell': {
             cmd: i18n.msg._('delete cells'),
+            icon: 'fa-remove',
             help: i18n.msg._('delete selected cells'),
             help_index : 'ej',
             handler : function (env) {
@@ -804,10 +806,13 @@ define([
         },
         'rename-notebook':{
             cmd: i18n.msg._('rename notebook'),
+            icon: 'fa-exchange',
             help: i18n.msg._("Rename the current notebook"),
             handler : function (env, event) {
                 env.notebook.save_widget.rename_notebook({notebook: env.notebook});
-            }
+                // wsj
+                //env.notebook.update_title(env.notebook);
+	    }
         },
         'toggle-all-cells-output-collapsed':{
             cmd: i18n.msg._('toggle all cells output collapsed'),

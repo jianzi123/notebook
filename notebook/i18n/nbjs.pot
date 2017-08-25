@@ -845,32 +845,32 @@ msgstr "重命名"
 #: notebook/static/notebook/js/actions.js:813
 #: notebook/static/notebook/js/main.min.js:43782
 msgid "toggle all cells output collapsed"
-msgstr ""
+msgstr "切换所有单元格的输出"
 
 #: notebook/static/notebook/js/actions.js:814
 #: notebook/static/notebook/js/main.min.js:43783
 msgid "Toggle the hidden state of all output areas"
-msgstr ""
+msgstr "切换所有输出区域的隐藏状态"
 
 #: notebook/static/notebook/js/actions.js:820
 #: notebook/static/notebook/js/main.min.js:43789
 msgid "toggle all cells output scrolled"
-msgstr ""
+msgstr "切换所有单元格的输出"
 
 #: notebook/static/notebook/js/actions.js:821
 #: notebook/static/notebook/js/main.min.js:43790
 msgid "Toggle the scrolling state of all output areas"
-msgstr ""
+msgstr "切换所有输出区域的滚动状态"
 
 #: notebook/static/notebook/js/actions.js:828
 #: notebook/static/notebook/js/main.min.js:43797
 msgid "clear all cells output"
-msgstr ""
+msgstr "清空所有单元格输出"
 
 #: notebook/static/notebook/js/actions.js:829
 #: notebook/static/notebook/js/main.min.js:43798
 msgid "Clear the content of all the outputs"
-msgstr ""
+msgstr "清空所有的输出内容"
 
 #: notebook/static/notebook/js/actions.js:835
 #: notebook/static/notebook/js/main.min.js:43804
@@ -885,7 +885,7 @@ msgstr "保存并检查"
 #: notebook/static/notebook/js/cell.js:79
 #: notebook/static/notebook/js/main.min.js:23201
 msgid "Warning: accessing Cell.cm_config directly is deprecated."
-msgstr ""
+msgstr "警告: 访问Cell.cm_config已经被弃用了."
 
 #: notebook/static/notebook/js/cell.js:763
 #: notebook/static/notebook/js/main.min.js:23885
@@ -901,7 +901,7 @@ msgstr "未知的单元格类型"
 #: notebook/static/notebook/js/celltoolbar.js:296
 #, python-format
 msgid "Error in cell toolbar callback %s"
-msgstr ""
+msgstr "工具栏调用 %s 出现错误"
 
 #: notebook/static/notebook/js/clipboard.js:53
 #: notebook/static/notebook/js/main.min.js:45082
@@ -912,7 +912,7 @@ msgstr "剪贴板类型: %s"
 #: notebook/static/notebook/js/clipboard.js:96
 #: notebook/static/notebook/js/main.min.js:45125
 msgid "Dialog for paste from system clipboard"
-msgstr ""
+msgstr "从系统剪切板粘贴"
 
 #: notebook/static/notebook/js/clipboard.js:109
 #: notebook/static/notebook/js/main.min.js:45138
@@ -928,33 +928,33 @@ msgstr ""
 #: notebook/static/notebook/js/main.min.js:45142
 #, python-format
 msgid "Press %s again to paste"
-msgstr ""
+msgstr "再按一次 %s 粘贴"
 
 #: notebook/static/notebook/js/clipboard.js:116
 #: notebook/static/notebook/js/main.min.js:45145
 msgid "Why is this needed? "
-msgstr ""
+msgstr "这个为啥需要?"
 
 #: notebook/static/notebook/js/clipboard.js:118
 #: notebook/static/notebook/js/main.min.js:45147
 msgid "We can't get paste events in this browser without a text box. "
-msgstr ""
+msgstr "在浏览器里没有文本框我们不能粘贴. "
 
 #: notebook/static/notebook/js/clipboard.js:119
 #: notebook/static/notebook/js/main.min.js:45148
 msgid "There's an invisible text box focused in this dialog."
-msgstr ""
+msgstr "在这个对话框中有一个不可见的文本框."
 
 #: notebook/static/notebook/js/clipboard.js:125
 #: notebook/static/notebook/js/main.min.js:45154
 #, python-format
 msgid "%s to paste"
-msgstr ""
+msgstr "%s 来粘贴"
 
 #: notebook/static/notebook/js/codecell.js:310
 #: notebook/static/notebook/js/main.min.js:31427
 msgid "Can't execute cell since kernel is not set."
-msgstr ""
+msgstr "只要服务没有设置就不能执行单元格代码."
 
 #: notebook/static/notebook/js/codecell.js:481
 #: notebook/static/notebook/js/main.min.js:31598
@@ -970,7 +970,7 @@ msgstr ""
 #: notebook/static/notebook/js/kernelselector.js:278
 #: notebook/static/notebook/js/main.min.js:44507
 msgid "Continue Without Kernel"
-msgstr ""
+msgstr "继续没有内核"
 
 #: notebook/static/notebook/js/kernelselector.js:278
 #: notebook/static/notebook/js/main.min.js:44507

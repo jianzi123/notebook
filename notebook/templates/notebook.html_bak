@@ -35,35 +35,26 @@ data-notebook-path="{{notebook_path | urlencode}}"
 {% endblock %}
 
 
- {% block datatitle %}
-      <div class="data-title" style="width: 100%; height: 20px; background-color: #DBE2E8; padding-left: 20px;">
-            <p>
-              <span id="notebook_name_title" class="filename">{{notebook_name | urlencode}}</span>
-            </p>
-          </div>
- {% endblock %}
-
 {% block headercontainer %}
 
 
 <span id="save_widget" class="save_widget">
-    <span id="notebook_name" class="filename" style="height: 20px; background-color: #DBE2E8;" ></span>
-    <!--<span class="checkpoint_status"></span>
+    <span id="notebook_name" class="filename"></span>
+    <span class="checkpoint_status"></span>
     <span class="autosave_status"></span>
-    -->
 </span>
-<!--
+
 <span id="kernel_logo_widget">
   {% block kernel_logo_widget %}
   <img class="current_kernel_logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
   {% endblock %}
 </span>
--->
+
 {% endblock headercontainer %}
 
 {% block header %}
 <div id="menubar-container" class="container">
-<div id="menubar" style="display:none;">
+<div id="menubar">
     <div id="menus" class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <button type="button" class="btn btn-default navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

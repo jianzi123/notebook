@@ -92,14 +92,20 @@ define(['jquery','base/js/i18n'], function($, i18n) {
                     action = that.actions.get(el.action);
                     action_name = el.action
                 }
+		console.log(action_name);
+		if(action_name.indexOf('interrupt-kernel') != -1 || action_name.indexOf('confirm-restart-kernel') != -1 || action_name.indexOf('show-command-palette') != -1){
+                        return;
+                } 
+		console.log(el.label, el.icon, action.help); 
                 var button  = $('<button/>')
                     .addClass('btn btn-default')
-                    .attr("title", el.label||i18n.msg._(action.help))
+                    .attr("title", i18n.msg._(action.help)||el.label)
                     .append(
                         $("<i/>").addClass(el.icon||(action||{icon:'fa-exclamation-triangle'}).icon).addClass('fa')
                     );
                 if (el.label) {
-                    var label = $('<span/>').text(i18n.msg._(el.label)).addClass('toolbar-btn-label');
+                    //var label = $('<span/>').text(i18n.msg._(el.label)).addClass('toolbar-btn-label');
+                    var label = $('<span/>').text('').addClass('toolbar-btn-label');
                     button.append(label);
                 }
                 var id = el.id;
