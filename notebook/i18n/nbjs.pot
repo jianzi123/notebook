@@ -213,7 +213,7 @@ msgstr "找不到sys_info!"
 #: notebook/static/notebook/js/about.js:38
 #: notebook/static/notebook/js/main.min.js:44620
 msgid "About Jupyter Notebook"
-msgstr "关于Notebook"
+msgstr "关于 Jupyter Notebook"
 
 #: notebook/static/notebook/js/about.js:47
 #: notebook/static/notebook/js/main.min.js:44629
@@ -965,12 +965,12 @@ msgstr ""
 #: notebook/static/notebook/js/main.min.js:44498
 #, python-format
 msgid "Could not find a kernel matching %s. Please select a kernel:"
-msgstr ""
+msgstr "找不到服务匹配 %s. 请选择一个服务:"
 
 #: notebook/static/notebook/js/kernelselector.js:278
 #: notebook/static/notebook/js/main.min.js:44507
 msgid "Continue Without Kernel"
-msgstr "继续没有内核"
+msgstr "继续运行没有服务"
 
 #: notebook/static/notebook/js/kernelselector.js:278
 #: notebook/static/notebook/js/main.min.js:44507
@@ -1020,7 +1020,7 @@ msgstr ""
 #: notebook/static/notebook/js/main.min.js:29639
 #: notebook/static/notebook/js/outputarea.js:185
 msgid "click to scroll output; double click to hide"
-msgstr ""
+msgstr "点击显示输出; 双击隐藏"
 
 #: notebook/static/notebook/js/main.min.js:29887
 #: notebook/static/notebook/js/outputarea.js:433
@@ -1767,7 +1767,7 @@ msgstr "服务创建"
 #: notebook/static/notebook/js/main.min.js:42447
 #: notebook/static/notebook/js/notificationarea.js:99
 msgid "Connecting to kernel"
-msgstr "正在创建服务"
+msgstr "正在连接服务"
 
 #: notebook/static/notebook/js/main.min.js:42451
 #: notebook/static/notebook/js/notificationarea.js:103
@@ -1855,7 +1855,7 @@ msgstr "现在尝试重启"
 #: notebook/static/notebook/js/main.min.js:42539
 #: notebook/static/notebook/js/notificationarea.js:191
 msgid "The kernel has died, and the automatic restart has failed. It is possible the kernel cannot be restarted. If you are not able to restart the kernel, you will still be able to save the notebook, but running code will no longer work until the notebook is reopened."
-msgstr ""
+msgstr "内核已经死亡，自动重启也失败了。有可能内核不能重新启动。如果您不能重新启动内核，您仍然能够保存笔记本，但是运行代码将不再工作，直到笔记本重新打开. "
 
 #: notebook/static/notebook/js/main.min.js:42573
 #: notebook/static/notebook/js/notificationarea.js:225
@@ -1901,7 +1901,7 @@ msgstr "使用服务:"
 #: notebook/static/notebook/js/main.min.js:42646
 #: notebook/static/notebook/js/notificationarea.js:298
 msgid "Only candidate for language: %1$s was %2$s."
-msgstr ""
+msgstr "只支持语言: %1$s - %2$s."
 
 #: notebook/static/notebook/js/main.min.js:42667
 #: notebook/static/notebook/js/notificationarea.js:319
@@ -2151,11 +2151,11 @@ msgstr "代码工具栏"
 
 #: notebook/static/notebook/js/tour.js:45
 msgid "The toolbar has buttons for the most common actions. Hover your mouse over each button for more information."
-msgstr ""
+msgstr "工具栏有最常见操作的按钮。将鼠标悬停在每个按钮上以获得更多信息。"
 
 #: notebook/static/notebook/js/tour.js:48
 msgid "Mode Indicator"
-msgstr ""
+msgstr "模式指示器"
 
 #: notebook/static/notebook/js/tour.js:50
 msgid "The Notebook has two modes: Edit Mode and Command Mode. In this area, an indicator can appear to tell you which mode you are in."

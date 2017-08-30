@@ -16,7 +16,7 @@ data-terminals-available="{{terminals_available}}"
 
   <div id="ipython-main-app" class="container">
     <div id="tab_content" class="tabbable">
-      <ul id="tabs" class="my-nav ">
+      <ul id="tabs" class="nav nav-tabs">
         <li class="active"><a href="#notebooks" data-toggle="tab">我的代码</a></li>
         <li><a href="#running" data-toggle="tab">运行中的代码</a></li>
         <!-- <li><a href="#clusters" data-toggle="tab" class="clusters_tab_link" >Clusters</a></li> -->

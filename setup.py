@@ -13,7 +13,7 @@
 
 from __future__ import print_function
 
-name = "notebook"
+name = "moxi-notebook"
 
 #-----------------------------------------------------------------------------
 # Minimal Python version sanity check

@@ -112,12 +112,12 @@ msgstr "还没有登录, 请先登录."
 #: notebook/templates/logout.html:31
 #, python-format
 msgid "Proceed to the <a href=\"%(base_url)s\">dashboard"
-msgstr ""
+msgstr "进入 <a href=\"%(base_url)s\"> 指示板"
 
 #: notebook/templates/logout.html:33
 #, python-format
 msgid "Proceed to the <a href=\"%(base_url)slogin\">login page"
-msgstr ""
+msgstr "进入 <a href=\"%(base_url)slogin\"> 登录页面"
 
 #: notebook/templates/notebook.html:62
 msgid "Menu"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: notebook/templates/notebook.html:118
 msgid "Deploy as"
-msgstr ""
+msgstr "部署在"
 
 #: notebook/templates/notebook.html:123
 msgid "Trust the output of this notebook"
@@ -305,7 +305,7 @@ msgstr "显示/隐藏行号"
 
 #: notebook/templates/notebook.html:174
 msgid "Cell Toolbar"
-msgstr ""
+msgstr "单元格工具栏"
 
 #: notebook/templates/notebook.html:179
 msgid "Insert"
@@ -405,7 +405,7 @@ msgstr "内容将通过未经修改的nbconvert"
 
 #: notebook/templates/notebook.html:216
 msgid "Raw NBConvert"
-msgstr ""
+msgstr "原生 NBConvert"
 
 #: notebook/templates/notebook.html:220
 msgid "Current Outputs"
@@ -541,5 +541,5 @@ msgstr "关于"
 
 #: notebook/templates/page.html:114
 msgid "Jupyter Notebook requires JavaScript."
-msgstr ""
+msgstr "Jupyter Notebook需要的JavaScript."
 

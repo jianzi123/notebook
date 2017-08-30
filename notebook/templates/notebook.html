@@ -36,7 +36,7 @@ data-notebook-path="{{notebook_path | urlencode}}"
 
 
  {% block datatitle %}
-      <div class="data-title" style="width: 100%; height: 20px; background-color: #DBE2E8; padding-left: 20px;">
+      <div class="data-title" id="sync-name" >
             <p>
               <span id="notebook_name_title" class="filename">{{notebook_name | urlencode}}</span>
             </p>
@@ -45,13 +45,13 @@ data-notebook-path="{{notebook_path | urlencode}}"
 
 {% block headercontainer %}
 
-
+<!--
 <span id="save_widget" class="save_widget">
     <span id="notebook_name" class="filename" style="height: 20px; background-color: #DBE2E8;" ></span>
-    <!--<span class="checkpoint_status"></span>
+    <span class="checkpoint_status"></span>
     <span class="autosave_status"></span>
-    -->
 </span>
+    -->
 <!--
 <span id="kernel_logo_widget">
   {% block kernel_logo_widget %}

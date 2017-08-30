@@ -19,6 +19,9 @@
     "requirejs": "^2.1.17"
   },
   "dependencies": {
-    "upgrade": "^1.1.0"
+    "extract-zip": "^1.6.5",
+    "rimraf": "^2.6.1",
+    "upgrade": "^1.1.0",
+    "which": "^1.3.0"
   }
 }
