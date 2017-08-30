@@ -329,7 +329,7 @@ define([
         'paste-cell-above' : {
             cmd: i18n.msg._('paste cells above'),
             // help: i18n.msg._('paste cells above'),
-            help: '粘贴',
+            help: "粘贴",
             help_index : 'eg',
             handler : function (env) {
                 env.notebook.paste_cell_above();
@@ -337,7 +337,8 @@ define([
         },
         'paste-cell-below' : {
             cmd: i18n.msg._('paste cells below'),
-            help: i18n.msg._('paste cells below'),
+            // help: i18n.msg._('paste cells below'),
+            help: "粘贴",
             icon: 'fa-paste',
             help_index : 'eh',
             handler : function (env) {
@@ -347,7 +348,7 @@ define([
         'insert-cell-above' : {
             cmd: i18n.msg._('insert cell above'),
             // help: i18n.msg._('insert cell above'),
-            help: '插入',
+            help: "插入",
             help_index : 'ec',
             handler : function (env) {
                 env.notebook.insert_cell_above();
@@ -357,7 +358,8 @@ define([
         },
         'insert-cell-below' : {
             cmd: i18n.msg._('insert cell below'),
-            help: i18n.msg._('insert cell below'),
+            // help: i18n.msg._('insert cell below'),
+            help: "插入",
             icon : 'fa-plus',
             help_index : 'ed',
             handler : function (env) {
