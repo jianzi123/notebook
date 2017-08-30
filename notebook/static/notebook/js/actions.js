@@ -158,7 +158,8 @@ define([
         'run-cell':{
             cmd: i18n.msg._('run selected cells'),
             icon: 'fa-play',
-            help    : i18n.msg._('run selected cells'),
+            //help    : i18n.msg._('run selected cells'),
+            help    : '运行',
             help_index : 'bb',
             handler : function (env) {
                 env.notebook.execute_selected_cells();
@@ -311,7 +312,8 @@ define([
         },
         'copy-cell' : {
             cmd: i18n.msg._('copy selected cells'),
-            help: i18n.msg._('copy selected cells'),
+            // help: i18n.msg._('copy selected cells'),
+            help: '复制',
             icon: 'fa-copy',
             help_index : 'ef',
             handler : function (env) {
@@ -326,7 +328,8 @@ define([
         },
         'paste-cell-above' : {
             cmd: i18n.msg._('paste cells above'),
-            help: i18n.msg._('paste cells above'),
+            // help: i18n.msg._('paste cells above'),
+            help: '粘贴',
             help_index : 'eg',
             handler : function (env) {
                 env.notebook.paste_cell_above();
@@ -343,7 +346,8 @@ define([
         },
         'insert-cell-above' : {
             cmd: i18n.msg._('insert cell above'),
-            help: i18n.msg._('insert cell above'),
+            // help: i18n.msg._('insert cell above'),
+            help: '插入',
             help_index : 'ec',
             handler : function (env) {
                 env.notebook.insert_cell_above();
@@ -459,7 +463,8 @@ define([
         },
         'move-cell-down' : {
             cmd: i18n.msg._('move cells down'),
-            help: i18n.msg._('move selected cells down'),
+            // help: i18n.msg._('move selected cells down'),
+            help: '下移',
             icon: 'fa-arrow-down',
             help_index : 'eb',
             handler : function (env) {
@@ -468,7 +473,8 @@ define([
         },
         'move-cell-up' : {
             cmd: i18n.msg._('move cells up'),
-            help: i18n.msg._('move selected cells up'),
+            // help: i18n.msg._('move selected cells up'),
+            help: '上移',
             icon: 'fa-arrow-up',
             help_index : 'ea',
             handler : function (env) {
@@ -494,7 +500,8 @@ define([
         'delete-cell': {
             cmd: i18n.msg._('delete cells'),
             icon: 'fa-remove',
-            help: i18n.msg._('delete selected cells'),
+            // help: i18n.msg._('delete selected cells'),
+            help: '删除',
             help_index : 'ej',
             handler : function (env) {
                 env.notebook.delete_cell();
@@ -807,7 +814,8 @@ define([
         'rename-notebook':{
             cmd: i18n.msg._('rename notebook'),
             icon: 'fa-exchange',
-            help: i18n.msg._("Rename the current notebook"),
+            // help: i18n.msg._("Rename the current notebook"),
+            help: "重命名",
             handler : function (env, event) {
                 env.notebook.save_widget.rename_notebook({notebook: env.notebook});
                 // wsj
@@ -838,7 +846,8 @@ define([
         },
         'save-notebook':{
             cmd: i18n.msg._('save notebook'),
-            help: i18n.msg._("Save and Checkpoint"),
+            // help: i18n.msg._("Save and Checkpoint"),
+            help: '保存',
             help_index : 'fb',
             icon: 'fa-save',
             handler : function (env, event) {

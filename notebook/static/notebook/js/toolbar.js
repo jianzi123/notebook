@@ -96,7 +96,7 @@ define(['jquery','base/js/i18n'], function($, i18n) {
 		if(action_name.indexOf('interrupt-kernel') != -1 || action_name.indexOf('confirm-restart-kernel') != -1 || action_name.indexOf('show-command-palette') != -1){
                         return;
                 } 
-		console.log(el.label, el.icon, action.help); 
+		// console.log(el.label, el.icon, action.help, i18n.msg._(action.help), i18n); 
                 var button  = $('<button/>')
                     .addClass('btn btn-default')
                     .attr("title", i18n.msg._(action.help)||el.label)
