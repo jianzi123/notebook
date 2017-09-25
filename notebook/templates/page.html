@@ -130,19 +130,23 @@
       Please enable it to proceed.
   </div>
 </noscript>
-
+<div id="left">
+    {% block static_data %}
+    {% endblock %}
+</div>
+<div id="right">
 <div id="header">
-  <div id="header-container" class="container">
+  <div id="header-container" class="container-self">
   <div id="ipython_notebook" class="nav navbar-brand"><a href="{{default_url}}
     {%- if logged_in and token -%}?token={{token}}{%- endif -%}" title='{% trans %}dashboard{% endtrans %}'>
-      {% block logo %}<img src='{{static_url("base/images/logo.png") }}' alt='Jupyter Notebook'/>{% endblock %}
+      <!-- {% block logo %}<img src='{{static_url("base/images/logo.png") }}' alt='Jupyter Notebook'/>{% endblock %}-->
   </a></div>
 
   {% block header_buttons %}
   
   {% block login_widget %}
 
-    <span id="login_widget">
+    <span id="login_widget" style="display: none;">
       {% if logged_in %}
         <button id="logout" class="btn btn-sm navbar-btn">Logout</button>
       {% elif login_available and not logged_in %}
@@ -173,6 +177,7 @@
 
 {% block script %}
 {% endblock %}
+</div>
 
 </body>
 

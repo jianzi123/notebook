@@ -12,11 +12,56 @@ data-terminals-available="{{terminals_available}}"
 {% endblock %}
 
 
+{% block static_data %}
+<div id="first-float">
+    <div id="left-title">
+        <span>数据产品</span>
+    </div>
+    <div id="static-data">
+        <ul id="data-ul">
+
+        </ul>
+    </div>
+</div>
+<div id="second-float" style="display: none;">
+    <div id="des-title">
+        <a href="#"><img class="goback" src="static/goback.png"></a>
+        <span>数据产品参数描述</span>
+    </div>
+    <div id="des-data">
+        <div class="des-list">
+            <span> Table Name </span>
+            <img src="static/drop.png">
+        </div>
+        <ul id="data-para">
+
+        </ul>
+    </div>
+</div>
+<div class="dialog" id="dialog-div">
+    <div class="dialog-header">
+      <div class="title">
+        <p>prod_id</p>
+      </div>
+      <div class="img">
+        <img src="static/close.png" />
+      </div>
+    </div>
+    <div class="dialog-content">
+      <ul>
+        <li><span class="para-des">类型</span><span id="kind"></span></li>
+        <li><span class="para-des">说明</span><span id="explain"></span></li>
+        <li><span class="para-exam">示例</span><span id="example"></span> </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
 {% block site %}
 
-  <div id="ipython-main-app" class="container">
+  <div id="ipython-main-app" class="container-self">
     <div id="tab_content" class="tabbable">
-      <ul id="tabs" class="nav nav-tabs">
+      <ul id="tabs" class="">
         <li class="active"><a href="#notebooks" data-toggle="tab">我的代码</a></li>
         <li><a href="#running" data-toggle="tab">运行中的代码</a></li>
         <!-- <li><a href="#clusters" data-toggle="tab" class="clusters_tab_link" >Clusters</a></li> -->
@@ -25,20 +70,19 @@ data-terminals-available="{{terminals_available}}"
         <div id="notebooks" class="tab-pane active">
           <div id="notebook_toolbar" class="row">
             <div class="col-sm-12 no-padding tree-buttons">
-              <div class="pull-left">
-		<!-- 
-                <form id='alternate_upload'  class='alternate_upload'>
+                <form id='alternate_upload'  class='alternate_upload' style="display: none;">
                   <span id="notebook_list_info">
+
                   <span class="btn btn-xs btn-default btn-upload">
                   <input  title="Click to browse for a file to upload." type="file" name="datafile" class="fileinput" multiple='multiple'>
                   Upload
                   </span>
                   </span>
                 </form>
-		-->
+	
                 <div id="new-buttons" class="btn-group">
-                  <button class="dropdown-toggle btn btn-default btn-xs" data-toggle="dropdown">
-                  <span>新建代码</span>
+                  <button class="dropdown-toggle btn btn-default btn-xs" id="new-btn" data-toggle="dropdown">
+                  <span>新建</span>
                   <span class="caret"></span>
                   </button>
                   <ul id="new-menu" class="dropdown-menu">
@@ -61,12 +105,10 @@ data-terminals-available="{{terminals_available}}"
 		    -->
                     <li role="presentation" class="dropdown-header" id="notebook-kernels" style="display:none">代码</li>
                   </ul>
-                </div>
-                <div class="btn-group">
-                    <button id="refresh_notebook_list" title="刷新代码列表" class="btn btn-default btn-xs"><i class="fa ">刷新</i></button>
-                    <!-- <button id="refresh_notebook_list" title="Refresh notebook list" class="btn btn-default btn-xs"><i class="fa fa-refresh">刷新</i></button> -->
+                    <button id="refresh_notebook_list" title="Refresh notebook list" class="btn btn-default btn-xs"><i class="fa fa-refresh"></i></button>
                 </div>
                 <div class="dynamic-buttons">
+                    <span id="place-hold">选中后进行操作</span>
                     <button class="duplicate-button btn btn-default btn-xs">复制</button>
                     <button class="rename-button btn btn-default btn-xs">重命名</button>
                     <button class="shutdown-button btn btn-default btn-xs btn-warning">停止代码运行</button>
@@ -74,11 +116,10 @@ data-terminals-available="{{terminals_available}}"
                 </div>
               </div>
             </div>
-          </div>
 	 
           <div id="notebook_list">
-            <div id="notebook_list_header" class="row list_header" style="display:none" >
-              <div class="btn-group dropdown" id="tree-selector" style="display:none" >
+            <div id="notebook_list_header" class="row list_header" >
+              <div class="btn-group dropdown" id="tree-selector" >
                 <button title="Select All / None" type="button" class="btn btn-default btn-xs" id="button-select-all">
                   <input type="checkbox" class="pull-left tree-selector" id="select-all"><span id="counter-select-all">&nbsp;</span></input>
                 </button>
@@ -93,7 +134,7 @@ data-terminals-available="{{terminals_available}}"
                   <li role="presentation"><a id="select-files" role="menuitem" tabindex="-1" href="#" title="Select All Files"><i class="menu_icon file_icon icon-fixed-width"></i> Files</a></li>
                 </ul>
               </div>
-              <div id="project_name" style="display:none">
+              <div id="project_name" >
                 <ul class="breadcrumb">
                   <li><a href="{{breadcrumbs[0][0]}}"><i class="fa fa-home"></i></a></li>
                 {% for crumb in breadcrumbs[1:] %}

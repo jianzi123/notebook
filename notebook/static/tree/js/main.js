@@ -35,6 +35,8 @@ require([
     'tree/js/kernellist',
     'tree/js/terminallist',
     'tree/js/newnotebook',
+    'tree/js/treeapi',
+//    'tree/js/showdata',
     'auth/js/loginwidget',
     'bidi/bidi',
 ], function(
@@ -52,6 +54,7 @@ require([
     kernellist,
     terminallist,
     newnotebook,
+    treeapi,
     loginwidget,
     bidi){
     "use strict";
@@ -79,6 +82,9 @@ require([
     common_config.load();
 
     // Instantiate the main objects
+
+    var api = new treeapi.dataAPI(common_options.base_url);
+    var sqlData = api.getStaticData('data');
 
     page = new page.Page('div#header', 'div#site');
 
@@ -208,4 +214,159 @@ require([
     if (window.location.hash) {
         $("#tabs").find("a[href=" + window.location.hash + "]").click();
     }
+
+    // self fix--------------------------------------
+    $(document).on('click', ".data-table", function(e) {
+        // alert(e.target);
+        var tItem = $(e.target)
+        var tId = tItem.attr('id');
+        var tClass = tItem.attr('class');
+
+       while (tClass != "data-table" || tItem.tagName == "li") {
+          tItem = tItem.parent();
+          tId = tItem.attr('id');
+          tClass = tItem.attr('class');
+        }
+
+        var $tImg = tItem.find('img');
+        if ($tImg == 'undefined') {
+          return;
+        }
+        // console.log($tImg[0].html());
+        var img = $tImg[0];
+        if (img == 'undefined') {
+          return;
+        }
+
+        if (img.getAttribute("src") === undefined) {
+          img.src = "static/list.png";
+          var $detail = tItem.next();
+          $detail.css('hidden', true);
+        } else if (img.getAttribute("src") === "static/drop.png") {
+          img.src = "static/list.png";
+          var $detail = tItem.nextAll()[0];
+          $($detail).css('display', 'none');
+        } else {
+          img.src = "static/drop.png";
+          var $detail = tItem.nextAll()[0];
+          $($detail).css('display', 'block');
+        }
+    });
+
+    $(document).on('click', 'ul#data-para li', function(e){
+        var tItem = $(e.target);
+        var tId = tItem.attr('id');
+
+        if(tId == undefined){
+            return;
+        }
+
+        var nums = tId.split('_');
+        var data = null;
+        var title = null;
+        var detail = null;
+        if(nums.length == 3){
+            var table = parseInt(nums[0]);
+            var column = parseInt(nums[1]);
+            var para = parseInt(nums[2]);
+
+            title = sqlData[table].table[column];
+            data = sqlData[table].table_detail[column];
+            detail = data.para_detail[para];
+        }else{
+            return;
+        }
+
+        $('#kind').html(detail.type);
+        $('#explain').html(detail.explain);
+        $('#example').html(detail.example);
+        $('#dialog-div').attr('style', 'display: block;');
+    });
+
+    $(document).on('click', "div.data-detail ul li", function(e) {
+
+    var item = $(e.target);
+    var id = item.attr('id');
+    if (id === undefined) {
+      return;
+    }
+
+    var index = id.split("_");
+    var data = null;
+    var title = null;
+    if(index.length == 2) {
+        var table = parseInt(index[0]);
+        var column = parseInt(index[1]);
+        title = sqlData[table].table[column];
+        data = sqlData[table].table_detail[column];
+    }else{
+        return;
+    }
+    var value = item.text();
+    if (value === undefined) {
+
+    }
+
+    var tmp = '';
+    for (var i = 0; i < data.para.length; i++) {
+      tmp = tmp + '<li id="' + id + '_' + i.toString() + '">' + data.para[i] + ' </li> ';
+    }
+
+    $('ul#data-para').html('');
+    $('div.des-list span').html(title);
+    $(tmp).appendTo('ul#data-para');
+    var detail = $('#second-float').get(0);
+    // title text
+    // $('div#pro-table-info span.title-content').text('jion');
+    // content
+
+    $(detail).css('display', 'block');
+    $($('#first-float').get(0)).css('display', 'none');
+
+  });
+
+
+  $(document).on('click', "div#des-title img.goback", function(e) {
+    var item = $(e.target);
+    $($('#first-float').get(0)).css('display', 'block');
+    $($('#second-float').get(0)).css('display', 'none');
+
+  });
+
+    $(document).on('click', ".dialog .dialog-header .img", function(e){
+        $("#dialog-div").attr("style", "display: none");
+    });
+
+    var addItem = function(index, data) {
+        var tmp = '';
+        var title = data.title;
+        var table_content = data.table;
+        for (var i = 0; i < table_content.length; i++) {
+          tmp = tmp + '<li id="' + index.toString() + '_' + i.toString() + '">' + table_content[i] + ' </li> ';
+        }
+        var h_data = '<li >\
+                                  <div class="data-table" id="data_table_' + index.toString() + ' ">\
+                                    <div class="data-header-title">\
+                                      <a class="ctext" id="text1">' + data.title +  '</a>\
+                                    </div>\
+                                    <div class="data-header-img">\
+                                      <img class="test" src="static/list.png" />\
+                                    </div>\
+                                  </div>\
+                                  <!-- 展示数据 -->\
+                                  <div class="data-detail" style="display: none;" >\
+                                    <ul > ' +  tmp + '</ul>\
+                                  </div>\
+                                </li>';
+        return h_data;
+      };
+
+    var index = sqlData.length;
+    var content = null;
+    sqlData.forEach(
+        function(elem, index){
+            content = addItem(index, elem);
+            $(content).appendTo('div#static-data ul#data-ul');
+        }
+    );
 });

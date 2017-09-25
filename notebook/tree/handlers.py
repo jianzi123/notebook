@@ -7,7 +7,7 @@ from tornado import web
 import os
 from ..base.handlers import IPythonHandler, path_regex
 from ..utils import url_path_join, url_escape
-
+import json
 
 class TreeHandler(IPythonHandler):
     """Render the tree view, listing notebooks, etc."""
@@ -69,6 +69,37 @@ class TreeHandler(IPythonHandler):
             raise web.HTTPError(404)
 
 
+class DataHandler(IPythonHandler):
+    """get static data"""
+
+    @web.authenticated
+    def get(self):
+        # data = [
+        #     {'title': "移动互联网分析",
+        #     'table': ("用户使用APP信息", "用户搜索关键字汇总信息", "用户互联网账号信息"),},
+        #      {'title': "移动互联网分析",
+        #       'table': ("用户使用APP信息", "用户搜索关键字汇总信息", "用户互联网账号信息"), },
+        #      ]
+        data = [{'title': "移动互联网分析",
+            'table': ("用户使用APP信息", "用户搜索关键字汇总信息", "用户互联网账号信息"),
+            'table_detail':[
+            {'para':['deivce_number', 'prod_id'],
+            'para_detail': [{'type':'str',
+            'explain':'telephone',
+            'example':'1234321',
+            }, {'type':'str1',
+            'explain':'telephone222',
+            'example':'1234321000',}
+            ]}],
+            },]
+        # data = {
+        #     'title': "移动互联网分析",
+        #    'table': ("用户使用APP信息", "用户搜索关键字汇总信息", "用户互联网账号信息"),
+        # }
+        dJson = json.dumps(data)
+        self.log.info(dJson)
+        self.write(dJson)
+
 #-----------------------------------------------------------------------------
 # URL to handler mappings
 #-----------------------------------------------------------------------------
@@ -77,4 +108,5 @@ class TreeHandler(IPythonHandler):
 default_handlers = [
     (r"/tree%s" % path_regex, TreeHandler),
     (r"/tree", TreeHandler),
+    (r"/data", DataHandler)
     ]

@@ -34,6 +34,50 @@ data-notebook-name="{{notebook_name | urlencode}}"
 data-notebook-path="{{notebook_path | urlencode}}"
 {% endblock %}
 
+{% block static_data %}
+<div id="first-float">
+    <div id="left-title">
+        <span>数据产品</span>
+    </div>
+    <div id="static-data">
+        <ul id="data-ul">
+
+        </ul>
+    </div>
+</div>
+<div id="second-float" style="display: none;">
+    <div id="des-title">
+        <a href="#"><img class="goback" src="../static/goback.png"></a>
+        <span>数据产品参数描述</span>
+    </div>
+    <div id="des-data">
+        <div class="des-list">
+            <span> Table Name </span>
+            <img src="../static/drop.png">
+        </div>
+        <ul id="data-para">
+
+        </ul>
+    </div>
+</div>
+<div class="dialog" id="dialog-div">
+    <div class="dialog-header">
+      <div class="title">
+        <p>prod_id</p>
+      </div>
+      <div class="img">
+        <img src="../static/close.png" />
+      </div>
+    </div>
+    <div class="dialog-content">
+      <ul>
+        <li><span class="para-des">类型</span><span id="kind"></span></li>
+        <li><span class="para-des">说明</span><span id="explain"></span></li>
+        <li><span class="para-exam">示例</span><span id="example"></span> </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
 
 {% block headercontainer %}
 
@@ -41,10 +85,10 @@ data-notebook-path="{{notebook_path | urlencode}}"
 <span id="save_widget" class="save_widget">
     <span id="notebook_name" class="filename"></span>
     <span class="checkpoint_status"></span>
-    <span class="autosave_status"></span>
+    <span class="autosave_status" style="display: none;"></span>
 </span>
 
-<span id="kernel_logo_widget">
+<span id="kernel_logo_widget" style="display: none;">
   {% block kernel_logo_widget %}
   <img class="current_kernel_logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
   {% endblock %}
@@ -53,7 +97,7 @@ data-notebook-path="{{notebook_path | urlencode}}"
 {% endblock headercontainer %}
 
 {% block header %}
-<div id="menubar-container" class="container">
+<div id="menubar-container" class="container-self">
 <div id="menubar">
     <div id="menus" class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -73,8 +117,9 @@ data-notebook-path="{{notebook_path | urlencode}}"
             </i>
             <i id="modal_indicator" class="navbar-text"></i>
             <span id="notification_area"></span>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+            <!-- <div class="navbar-collapse collapse"> -->
+            <div id="tmenu" style="height: 40px">
+              <ul id="tlmenu" class="nav navbar-nav" style="">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}File{% endtrans %}</a>
                     <ul id="file_menu" class="dropdown-menu">
                         <li id="new_notebook" class="dropdown-submenu">
