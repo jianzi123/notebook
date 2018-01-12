@@ -25,13 +25,13 @@ data-terminals-available="{{terminals_available}}"
 </div>
 <div id="second-float" style="display: none;">
     <div id="des-title">
-        <a href="#"><img class="goback" src="static/goback.png"></a>
+        <a href="#"><img class="goback" src="?"></a>
         <span>数据产品参数描述</span>
     </div>
     <div id="des-data">
         <div class="des-list">
             <span> Table Name </span>
-            <img src="static/drop.png">
+            <img src="?">
         </div>
         <ul id="data-para">
 
@@ -44,14 +44,14 @@ data-terminals-available="{{terminals_available}}"
         <p>prod_id</p>
       </div>
       <div class="img">
-        <img src="static/close.png" />
+        <img src="?" />
       </div>
     </div>
     <div class="dialog-content">
       <ul>
         <li><span class="para-des">类型</span><span id="kind"></span></li>
         <li><span class="para-des">说明</span><span id="explain"></span></li>
-        <li><span class="para-exam">示例</span><span id="example"></span> </li>
+        <li><span class="para-exam">示例</span><textarea id="example"></textarea> </li>
       </ul>
     </div>
   </div>
@@ -175,4 +175,13 @@ data-terminals-available="{{terminals_available}}"
 {% else %}
     <script src="{{ static_url("tree/js/main.min.js") }}" type="text/javascript" charset="utf-8"></script>
 {% endif %}
+
+<script type="text/javascript" charset="utf-8">
+    window.onload = function(){
+        $($("div#des-title a img").get(0)).attr("src", window.document.location.origin + $("body").attr('data-base-url') + "static/goback.png");
+        $($("div.des-list img").get(0)).attr("src", window.document.location.origin + $("body").attr('data-base-url') + "static/drop.png");
+        $($("div.img img").get(0)).attr("src", window.document.location.origin + $("body").attr('data-base-url') + "static/close.png");
+    };
+</script>
+
 {% endblock %}

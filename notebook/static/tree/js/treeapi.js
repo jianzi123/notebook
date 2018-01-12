@@ -35,8 +35,8 @@ define([
         options = options || {};
         options = ajax_dafaults(options);
         url = this.base_url + path;
-        console.log(url);
-        console.log(options);
+        // console.log(url);
+        // console.log(options);
         $.ajax(url, options);
     };
 
@@ -46,21 +46,21 @@ define([
             dataType: 'json',
             async: false,
             success: function(data){
-                console.log(data);
+                // console.log(data);
                 res = data;
-                console.log('get data succeed.');
-                console.log(res);
+                // console.log('get data succeed.');
+                // console.log(res);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
                 console.log(textStatus, errorThrown, XMLHttpRequest.status, XMLHttpRequest.readyStatus);
-                res = JSON.parse('[ "123", "456", "987" ]');
-                console.log(res);
+                res = JSON.parse('[]');
+                console.log('get data file failed.');
             },
         };
         update(opt, options || {});
-        console.log('before ajax.');
+        // console.log('before ajax.');
         this.api_request(path, opt);
-        console.log('after ajax');
+        // console.log('after ajax');
         return res;
     };
     return {'dataAPI': dataAPI};

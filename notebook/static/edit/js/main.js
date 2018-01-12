@@ -99,6 +99,9 @@ require([
         // account for padding on the backdrop wrapper
         var padding = backdrop.outerHeight(true) - backdrop.height();
         $('div.CodeMirror').height($("#site").height() - padding);
+        $('div#left').css('display', 'none');
+        $('div#right').css('width', '100%');
+        $('span.save_widget').css('justify-content', 'center');
     };
     $(window).resize(_handle_resize);
 

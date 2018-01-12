@@ -80,7 +80,8 @@ define([
             }
         },
         'shutdown-kernel': {
-            help: 'Shutdown the kernel (no confirmation dialog)',
+            // help: i18n.msg._('Shutdown the kernel (no confirmation dialog)'),
+            help: '关闭内核',
             handler: function (env) {
                 env.notebook.shutdown_kernel({confirm: false});
             }
@@ -88,14 +89,15 @@ define([
         'confirm-shutdown-kernel':{
             icon: 'fa-repeat',
             help_index : 'hb',
-            help: 'Shutdown the kernel (with confirmation dialog)',
+            help: i18n.msg._('Shutdown the kernel (with confirmation dialog)'),
             handler : function (env) {
                 env.notebook.shutdown_kernel();
             }
         },
         'restart-kernel': {
             cmd: i18n.msg._('restart kernel'),
-            help: i18n.msg._('restart the kernel (no confirmation dialog)'),
+            // help: i18n.msg._('restart the kernel (no confirmation dialog)'),
+            help: '重启内核',
             handler: function (env) {
                 env.notebook.restart_kernel({confirm: false});
             },
@@ -104,7 +106,8 @@ define([
             icon: 'fa-repeat',
             help_index : 'hb',
             cmd: i18n.msg._('confirm restart kernel'),
-            help: i18n.msg._('restart the kernel (with dialog)'),
+            // help: i18n.msg._('restart the kernel (with dialog)'),
+            help: '重启内核',
             handler : function (env) {
                 env.notebook.restart_kernel();
             }
@@ -140,7 +143,8 @@ define([
         'interrupt-kernel':{
             icon: 'fa-stop',
             cmd: i18n.msg._('interrupt the kernel'),
-            help: i18n.msg._('interrupt the kernel'),
+            // help: i18n.msg._('interrupt the kernel'),
+            help: '中断内核',
             help_index : 'ha',
             handler : function (env) {
                 env.notebook.kernel.interrupt();
@@ -149,7 +153,8 @@ define([
         'run-cell-and-select-next': {
             cmd: i18n.msg._('run cell and select next'),
             icon: 'fa-step-forward',
-            help: i18n.msg._('run cell, select below'),
+            // help: i18n.msg._('run cell, select below'),
+            help: '运行单元格代码并选中下面一行',
             help_index : 'ba',
             handler : function (env) {
                 env.notebook.execute_cell_and_select_below();
@@ -157,7 +162,8 @@ define([
         },
         'run-cell':{
             cmd: i18n.msg._('run selected cells'),
-            help    : i18n.msg._('run selected cells'),
+            // help    : i18n.msg._('run selected cells'),
+            help    : '运行选中单元格',
             help_index : 'bb',
             handler : function (env) {
                 env.notebook.execute_selected_cells();
@@ -165,7 +171,8 @@ define([
         },
         'run-cell-and-insert-below':{
             cmd: i18n.msg._('run cell and insert below'),
-            help    : i18n.msg._('run cell and insert below'),
+            // help    : i18n.msg._('run cell and insert below'),
+            help    : '运行单元格代码并在下面插入一行',
             help_index : 'bc',
             handler : function (env) {
                 env.notebook.execute_cell_and_insert_below();
@@ -173,7 +180,8 @@ define([
         },
         'run-all-cells': {
             cmd: i18n.msg._('run all cells'),
-            help: i18n.msg._('run all cells'),
+            // help: i18n.msg._('run all cells'),
+            help: i18n.msg._('执行所有单元格'),
             help_index: 'bd',
             handler: function (env) {
                 env.notebook.execute_all_cells();
@@ -181,14 +189,16 @@ define([
         },
         'run-all-cells-above':{
             cmd: i18n.msg._('run all cells above'),
-            help: i18n.msg._('run all cells above'),
+            // help: i18n.msg._('run all cells above'),
+            help: i18n.msg._('运行上面所有单元格'),
             handler : function (env) {
                 env.notebook.execute_cells_above();
             }
         },
         'run-all-cells-below':{
             cmd: i18n.msg._('run all cells below'),
-            help: i18n.msg._('run all cells below'),
+            // help: i18n.msg._('run all cells below'),
+            help: '运行下面所有单元格',
             handler : function (env) {
                 env.notebook.execute_cells_below();
             }
@@ -299,7 +309,8 @@ define([
         },
         'cut-cell' : {
             cmd: i18n.msg._('cut selected cells'),
-            help: i18n.msg._('cut selected cells'),
+            // help: i18n.msg._('cut selected cells'),
+            help: '剪切',
             icon: 'fa-cut',
             help_index : 'ee',
             handler : function (env) {
@@ -310,7 +321,8 @@ define([
         },
         'copy-cell' : {
             cmd: i18n.msg._('copy selected cells'),
-            help: i18n.msg._('copy selected cells'),
+            // help: i18n.msg._('copy selected cells'),
+            help: '复制',
             icon: 'fa-copy',
             help_index : 'ef',
             handler : function (env) {
@@ -318,14 +330,16 @@ define([
             }
         },
         'paste-cell-replace' : {
-            help: 'paste cells replace',
+            // help: 'paste cells replace',
+            help: '粘贴并替换',
             handler : function (env) {
                 env.notebook.paste_cell_replace();
             }
         },
         'paste-cell-above' : {
             cmd: i18n.msg._('paste cells above'),
-            help: i18n.msg._('paste cells above'),
+	    // help: i18n.msg._('paste cells above'),
+            help: '粘贴上面单元格',
             help_index : 'eg',
             handler : function (env) {
                 env.notebook.paste_cell_above();
@@ -333,7 +347,8 @@ define([
         },
         'paste-cell-below' : {
             cmd: i18n.msg._('paste cells below'),
-            help: i18n.msg._('paste cells below'),
+            // help: i18n.msg._('paste cells below'),
+            help: '粘贴',
             icon: 'fa-paste',
             help_index : 'eh',
             handler : function (env) {
@@ -342,7 +357,8 @@ define([
         },
         'insert-cell-above' : {
             cmd: i18n.msg._('insert cell above'),
-            help: i18n.msg._('insert cell above'),
+            // help: i18n.msg._('insert cell above'),
+            help: '在上面插入一个单元格',
             help_index : 'ec',
             handler : function (env) {
                 env.notebook.insert_cell_above();
@@ -352,7 +368,8 @@ define([
         },
         'insert-cell-below' : {
             cmd: i18n.msg._('insert cell below'),
-            help: i18n.msg._('insert cell below'),
+            // help: i18n.msg._('insert cell below'),
+            help: '在下面插入一个单元格',
             icon : 'fa-plus',
             help_index : 'ed',
             handler : function (env) {
@@ -458,7 +475,8 @@ define([
         },
         'move-cell-down' : {
             cmd: i18n.msg._('move cells down'),
-            help: i18n.msg._('move selected cells down'),
+            // help: i18n.msg._('move selected cells down'),
+            help: '下移',
             icon: 'fa-arrow-down',
             help_index : 'eb',
             handler : function (env) {
@@ -467,7 +485,8 @@ define([
         },
         'move-cell-up' : {
             cmd: i18n.msg._('move cells up'),
-            help: i18n.msg._('move selected cells up'),
+            // help: i18n.msg._('move selected cells up'),
+            help: '上移',
             icon: 'fa-arrow-up',
             help_index : 'ea',
             handler : function (env) {
@@ -547,7 +566,8 @@ define([
         'show-command-palette': {
             help_index : 'aa',
             cmd: i18n.msg._('show command pallette'),
-            help: i18n.msg._('open the command palette'),
+            // help: i18n.msg._('open the command palette'),
+            help: '打开命令列表',
             icon: 'fa-keyboard-o',
             handler : function(env){
                 env.notebook.show_command_palette();
@@ -833,7 +853,8 @@ define([
         },
         'save-notebook':{
             cmd: i18n.msg._('save notebook'),
-            help: i18n.msg._("Save and Checkpoint"),
+            //help: i18n.msg._("Save and Checkpoint"),
+            help: "保存并检查",
             help_index : 'fb',
             icon: 'fa-save',
             handler : function (env, event) {

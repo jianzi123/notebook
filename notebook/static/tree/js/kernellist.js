@@ -47,7 +47,7 @@ define([
             }
         });
         // Deselect items after successful shutdown.
-        $('.shutdown-button-selected').removeAttr('disabled');
+        // $('.shutdown-button-selected').removeAttr('disabled');
         that.select('select-none');
     };
 

@@ -242,9 +242,46 @@ require([
     // END HARDCODED WIDGETS HACK
 
     notebook.load_notebook(common_options.notebook_path);
+//
+//    // self fix wsj ------------------------------
+//        $(document).on('click', ".data-table", function(e) {
+//        // alert(e.target);
+//        var tItem = $(e.target)
+//        var tId = tItem.attr('id');
+//        var tClass = tItem.attr('class');
+//
+//       while (tClass != "data-table" || tItem.tagName == "li") {
+//          tItem = tItem.parent();
+//          tId = tItem.attr('id');
+//          tClass = tItem.attr('class');
+//        }
+//
+//        var $tImg = tItem.find('img');
+//        if ($tImg == 'undefined') {
+//          return;
+//        }
+//        var img = $tImg[0];
+//        if (img == 'undefined') {
+//          return;
+//        }
+//
+//        if (img.getAttribute("src") === undefined) {
+//          img.src = "../static/list.png";
+//          var $detail = tItem.next();
+//          $detail.css('hidden', true);
+//        } else if (img.getAttribute("src") === "static/drop.png") {
+//          img.src = "../static/list.png";
+//          var $detail = tItem.nextAll()[0];
+//          $($detail).css('display', 'none');
+//        } else {
+//          img.src = "../static/drop.png";
+//          var $detail = tItem.nextAll()[0];
+//          $($detail).css('display', 'block');
+//        }
+//    });
 
-    // self fix wsj ------------------------------
-        $(document).on('click', ".data-table", function(e) {
+    // self fix--------------------------------------
+    $(document).on('click', ".data-table", function(e) {
         // alert(e.target);
         var tItem = $(e.target)
         var tId = tItem.attr('id');
@@ -260,24 +297,46 @@ require([
         if ($tImg == 'undefined') {
           return;
         }
+        // console.log($tImg[0].html());
         var img = $tImg[0];
         if (img == 'undefined') {
           return;
         }
 
         if (img.getAttribute("src") === undefined) {
-          img.src = "../static/list.png";
+          img.src = window.document.location.origin + $("body").attr('data-base-url') + "static/list.png";
           var $detail = tItem.next();
           $detail.css('hidden', true);
-        } else if (img.getAttribute("src") === "static/drop.png") {
-          img.src = "../static/list.png";
+        } else if (img.getAttribute("src") ===  window.document.location.origin + $("body").attr('data-base-url') + "static/drop.png") {
+          img.src = window.document.location.origin + $("body").attr('data-base-url') + "static/list.png";
           var $detail = tItem.nextAll()[0];
           $($detail).css('display', 'none');
         } else {
-          img.src = "../static/drop.png";
+          img.src = window.document.location.origin + $("body").attr('data-base-url') + "static/drop.png";
           var $detail = tItem.nextAll()[0];
           $($detail).css('display', 'block');
         }
+
+        var $det = $('div.data-detail');
+        var i = 0;
+        for(i = 0; i < $det.length; i++){
+            var $brother = $($det.get(i)).prev();
+            if($brother.attr('id') == tId){
+                continue;
+            }
+            if($($det.get(i)).css('display') == "block"){
+                $($det.get(i)).css('display', 'none');
+            }
+        };
+
+        var $x = $("img.test")
+        for(i = 0; i < $x.length; i++){
+            var tmp = $($x.get(i)).parent().parent().attr('id');
+            if(tmp == tId){
+                continue;
+            }
+            $($x.get(i)).attr("src", window.document.location.origin + $("body").attr('data-base-url') + "static/list.png");
+        };
     });
 
     $(document).on('click', 'ul#data-para li', function(e){
@@ -356,6 +415,18 @@ require([
     var item = $(e.target);
     $($('#first-float').get(0)).css('display', 'block');
     $($('#second-float').get(0)).css('display', 'none');
+    var detail = document.getElementsByClassName('data-detail');
+    var i = 0;
+    for(i = 0; i < detail.length; i++){
+        if(detail[i].style.display == "block"){
+            detail[i].style.display = "none";
+        }
+    };
+    var $x = $("img.test")
+    for(i = 0; i < $x.length; i++){
+        $($x.get(i)).attr("src", window.document.location.origin + $("body").attr('data-base-url') + "static/list.png");
+    };
+    $($("div#dialog-div").get(0)).attr("style", "display:none");
 
   });
 
@@ -365,8 +436,12 @@ require([
 
     var addItem = function(index, data) {
         var tmp = '';
+        var pic_url = window.document.location.origin + $("body").attr('data-base-url') + "static/list.png";
         var title = data.title;
         var table_content = data.table;
+        if(table_content == null){
+            return '';
+        }
         for (var i = 0; i < table_content.length; i++) {
           tmp = tmp + '<li id="' + index.toString() + '_' + i.toString() + '">' + table_content[i] + ' </li> ';
         }
@@ -376,7 +451,7 @@ require([
                                       <a class="ctext" id="text1">' + data.title +  '</a>\
                                     </div>\
                                     <div class="data-header-img">\
-                                      <img class="test" src="../static/list.png" />\
+                                      <img class="test" src=' + pic_url + ' />\
                                     </div>\
                                   </div>\
                                   <!-- 展示数据 -->\
@@ -388,6 +463,9 @@ require([
       };
 
     var index = sqlData.length;
+    if(index == 0 ){
+        return;
+    }
     var content = null;
     sqlData.forEach(
         function(elem, index){

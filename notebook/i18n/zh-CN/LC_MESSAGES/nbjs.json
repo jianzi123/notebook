@@ -110,6 +110,12 @@
          "Open a dialog to edit the command mode keyboard shortcuts": [
             "打开窗口来编辑快捷键"
          ],
+         "Shutdown the kernel (no confirmation dialog)": [
+            "关闭服务(没有确认弹出框)"
+         ],
+         "Shutdown the kernel (with confirmation dialog)": [
+            "关闭服务(带有确定窗口)"
+         ],
          "restart kernel": [
             "重启服务"
          ],
@@ -423,22 +429,22 @@
             "重命名"
          ],
          "toggle all cells output collapsed": [
-            ""
+            "切换所有输出为隐藏(收起)"
          ],
          "Toggle the hidden state of all output areas": [
-            ""
+            "切换所有输出区域为隐藏状态"
          ],
          "toggle all cells output scrolled": [
-            ""
+            "切换所有单元格输出区域为滚动"
          ],
          "Toggle the scrolling state of all output areas": [
-            ""
+            "切换所有输出区域到滚动状态"
          ],
          "clear all cells output": [
-            ""
+            "清空所有单元格输出"
          ],
          "Clear the content of all the outputs": [
-            ""
+            "清空所有输出内容"
          ],
          "save notebook": [
             "保存代码"
@@ -447,7 +453,7 @@
             "保存并检查"
          ],
          "Warning: accessing Cell.cm_config directly is deprecated.": [
-            ""
+            "注意: Cell.cm_config 被废弃了."
          ],
          "Unrecognized cell type: %s": [
             "未知的单元格类型: %s"
@@ -456,13 +462,13 @@
             "未知的单元格类型"
          ],
          "Error in cell toolbar callback %s": [
-            ""
+            "单元格工具栏调用 %s 时出错"
          ],
          "Clipboard types: %s": [
             "剪贴板类型: %s"
          ],
          "Dialog for paste from system clipboard": [
-            ""
+            "从系统剪切板粘贴的窗口"
          ],
          "Ctrl-V": [
             ""
@@ -471,31 +477,31 @@
             ""
          ],
          "Press %s again to paste": [
-            ""
+            "再按一次 %s 粘贴"
          ],
          "Why is this needed? ": [
-            ""
+            "为啥需要这个?"
          ],
          "We can't get paste events in this browser without a text box. ": [
-            ""
+            "没有文本框我们没法获取粘贴的事件."
          ],
          "There's an invisible text box focused in this dialog.": [
-            ""
+            "窗口上有隐藏的文本框."
          ],
          "%s to paste": [
-            ""
+            "%s 粘贴"
          ],
          "Can't execute cell since kernel is not set.": [
-            ""
+            "由于内核没有设置无法执行单元格代码."
          ],
          "In": [
             ""
          ],
          "Could not find a kernel matching %s. Please select a kernel:": [
-            ""
+            "无法找到匹配的内核 %s. 请选择一个内核: "
          ],
          "Continue Without Kernel": [
-            ""
+            "在没有内核情况下继续"
          ],
          "Set Kernel": [
             "设置服务"
@@ -510,19 +516,19 @@
             "错误; %s"
          ],
          "Write raw LaTeX or other formats here, for use with nbconvert. It will not be rendered in the notebook. When passing through nbconvert, a Raw Cell's content is added to the output unmodified.": [
-            ""
+            "在这里写上raw LaTex或其他格式, 以便使用nbconvert. 它不会在笔记本上呈现. 当通过nbconvert时, 将原始单元的内容添加到未修改的输出中. "
          ],
          "click to expand output": [
-            ""
+            "点击展开数据"
          ],
          "click to expand output; double click to hide output": [
-            ""
+            "单击展开输出; 双击隐藏"
          ],
          "click to unscroll output; double click to hide": [
-            ""
+            "单击收缩输出; 双击隐藏"
          ],
          "click to scroll output; double click to hide": [
-            ""
+            "单击显示输出; 双击隐藏"
          ],
          "Javascript error adding output!": [
             "添加输出的时候JavaScript出现错误!"
@@ -549,7 +555,7 @@
             "关闭"
          ],
          "Tooltip will linger for 10 seconds while you type": [
-            ""
+            "在输入时提示会保存10秒"
          ],
          "Cell": [
             "单元格"
@@ -561,94 +567,118 @@
             "空"
          ],
          "Custom": [
-            ""
+            "自定义"
          ],
          "Set the MIME type of the raw cell:": [
-            ""
+            "设置raw单元格MIME类型:"
          ],
          "Raw Cell MIME Type": [
-            ""
+            "Raw单元格 MIME类型"
          ],
          "Raw NBConvert Format": [
-            ""
+            "Rwa NBConvert 格式"
          ],
          "Raw Cell Format": [
-            ""
+            "Raw单元格格式"
          ],
          "Slide": [
-            ""
+            "滚动条"
          ],
          "Sub-Slide": [
-            ""
+            "子滚动条"
          ],
          "Fragment": [
-            ""
+            "片段"
          ],
          "Skip": [
-            ""
+            "跳过"
          ],
          "Notes": [
             ""
          ],
          "Slide Type": [
-            ""
+            "滚动条类型"
          ],
          "Slideshow": [
-            ""
+            "显示滚动条"
          ],
          "Edit Attachments": [
-            ""
+            "编辑附件"
          ],
          "Add tag": [
-            ""
+            "添加标签"
          ],
          "Edit the list of tags below. All whitespace is treated as tag separators.": [
-            ""
+            "编辑下面的标签. 所有空白字符都被当错标签分割符来对待."
          ],
          "Edit the tags": [
-            ""
+            "编辑标签"
          ],
          "Edit Tags": [
-            ""
+            "编辑标签"
          ],
          "go to cell start": [
-            ""
+            "跳到单元格开头"
          ],
          "go to cell end": [
-            ""
+            "跳到单元格最后"
          ],
          "go one word left": [
-            ""
+            "跳到单词左边"
          ],
          "go one word right": [
-            ""
+            "跳到单词右边"
          ],
          "delete word before": [
-            ""
+            "删除单词前面数据"
          ],
          "delete word after": [
-            ""
-         ],
-         "code completion or indent": [
-            ""
-         ],
-         "tooltip": [
-            ""
-         ],
-         "indent": [
-            ""
-         ],
-         "dedent": [
-            ""
-         ],
-         "select all": [
-            ""
-         ],
-         "undo": [
-            ""
+            "删除单词后面数据"
          ],
          "redo": [
-            ""
+            "重做"
+         ],
+         "redo selection": [
+            "重新选择"
+         ],
+         "emacs-style line kill": [
+            "去掉emacs风格线"
+         ],
+         "delete line left of cursor": [
+            "删除光标左边行"
+         ],
+         "delete line right of cursor": [
+            "删除光标右边行"
+         ],
+         "code completion or indent": [
+            "代码完成或者缩进"
+         ],
+         "tooltip": [
+            "提示"
+         ],
+         "indent": [
+            "缩进"
+         ],
+         "dedent": [
+            "取消缩进"
+         ],
+         "select all": [
+            "全选"
+         ],
+         "undo": [
+            "撤销"
+         ],
+         "comment": [
+            "评论"
+         ],
+         "delete whole line": [
+            "删除整行"
+         ],
+         "undo selection": [
+            "取消选择"
+         ],
+         "toggle overwrite flag": [
+            "锁定重写标记"
          ],
          "Shift": [
             ""
@@ -684,10 +714,10 @@
             ""
          ],
          "Page Up": [
-            ""
+            "上一页"
          ],
          "Page Down": [
-            ""
+            "下一页"
          ],
          "Home": [
             ""
@@ -708,16 +738,16 @@
             ""
          ],
          "The Jupyter Notebook has two different keyboard input modes.": [
-            ""
+            "应用有两个不同的键盘输入模式."
          ],
          "<b>Edit mode</b> allows you to type code or text into a cell and is indicated by a green cell border.": [
-            ""
+            "<b>编辑模式</b>允许你在单元格输入代码或者文本并且用绿色单元格边界标识出来."
          ],
          "<b>Command mode</b> binds the keyboard to notebook level commands and is indicated by a grey cell border with a blue left margin.": [
-            ""
+            "<b>命令行模式</b>键盘绑定到notebook级的命令并且用灰边界左蓝填充标记."
          ],
          "Keyboard shortcuts": [
-            ""
+            "快捷键"
          ],
          "Command": [
             ""
@@ -732,16 +762,16 @@
             ""
          ],
          "Command Mode (press %s to enable)": [
-            ""
+            "命令行模式 (输入 %s 激活 )"
          ],
          "Edit Shortcuts": [
-            ""
+            "编辑快捷键"
          ],
          "edit command-mode keyboard shortcuts": [
-            ""
+            "编辑命令行模式快捷键"
          ],
          "Edit Mode (press %s to enable)": [
-            ""
+            "编辑模式(按下 %s 来激活)"
          ],
          "Autosave in progress, latest changes may be lost.": [
             "自动保存, 最新的改变有可能被丢弃."
@@ -805,12 +835,6 @@
          ],
          "Do you want to restart the current kernel and clear all output?  All variables and outputs will be lost.": [
             "您是否希望重新启动当前的内核并清除所有输出? 所有的变量和输出都将丢失."
-         ],
-         "Restart kernel?": [
-            "重启服务?"
-         ],
-         "Do you want to restart the current kernel?  All variables will be lost.": [
-            "如果重启服务, 所有变量都会丢弃."
          ],
          "Notebook changed": [
             "代码改变了"
@@ -945,7 +969,7 @@
             "木有连接成功"
          ],
          "click to reconnect": [
-            "点击重连"
+            "单击重连"
          ],
          "Restarting kernel": [
             "重启服务"
@@ -1011,7 +1035,7 @@
             "使用服务:"
          ],
          "Only candidate for language: %1$s was %2$s.": [
-            ""
+            "只提供语言：%1$s  %2$s."
          ],
          "Loading notebook": [
             "加载服务"

@@ -182,8 +182,11 @@ class NotebookWebApplication(web.Application):
         base_dir = os.path.realpath(os.path.join(__file__, '..', '..'))
         dev_mode = os.path.exists(os.path.join(base_dir, '.git'))
 
-        nbui = gettext.translation('nbui', localedir=os.path.join(base_dir, 'notebook/i18n'), fallback=True)
+        nbui = gettext.translation('nbui', localedir=os.path.join(base_dir, 'notebook/i18n'), languages=['zh-CN'], fallback=True)
         env.install_gettext_translations(nbui, newstyle=False)
+        #notebook_trans = gettext.translation('notebook', localedir=os.path.join(base_dir, 'notebook/i18n'), languages=['zh-CN'],
+        #                          fallback=True)
+        #env.install_gettext_translations(notebook_trans, newstyle=False)
 
         if dev_mode:
             DEV_NOTE_NPM = """It looks like you're running the notebook from source.

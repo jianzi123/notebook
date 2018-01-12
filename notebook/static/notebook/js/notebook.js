@@ -2310,9 +2310,9 @@ define([
         var shutdown_options = {};
         shutdown_options.confirm = (options || {}).confirm;
         shutdown_options.dialog = {
-            title : "Shutdown kernel?",
+            title : i18n.msg._("Shutdown kernel?"),
             body : $("<p/>").text(
-                'Do you want to shutdown the current kernel?  All variables will be lost.'
+                i18n.msg._('Do you want to shutdown the current kernel?  All variables will be lost.')
             ),
             buttons : {
                 "Shutdown" : {
@@ -2321,6 +2321,18 @@ define([
                 },
             }
         };
+//         shutdown_options.dialog = {
+//            title : "关闭服务?",
+//            body : $("<p/>").text(
+//                '如果关闭当前服务，所有变量都会丢失.'
+//            ),
+//            buttons : {
+//                "关闭服务" : {
+//                    "class" : "btn-danger",
+//                    "click" : function () {},
+//                },
+//            }
+//        };
         shutdown_options.kernel_action = function() {
             that.session.delete();
         };
@@ -2343,6 +2355,18 @@ define([
                 },
             }
         };
+//        restart_options.dialog = {
+//            title : i18n.msg._("重启服务?"),
+//            body : $("<p/>").text(
+//                i18n.msg._('如果重启当前服务，所有变量都会丢失.')
+//            ),
+//            buttons : {
+//                "Restart" : {
+//                    "class" : "btn-danger",
+//                    "click" : function () {},
+//                },
+//            }
+//        };
         return this._restart_kernel(restart_options);
     };
     

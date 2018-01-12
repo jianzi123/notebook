@@ -20,7 +20,7 @@ define([
        *  or the filepath itself if no dots present.
        *  Empty string if the filepath ends with a dot.
        **/
-      console.log(path);
+      // console.log(path);
       var parts = path.split('.');
       return parts[parts.length-1];
     };
@@ -664,7 +664,7 @@ define([
         //} else {
             $('.shutdown-button').css('display', 'none');
         //}
-        if (selected.length === 1 && has_running_notebook && this.active == "kernellist"){
+        if (selected.length != 0 && has_running_notebook && this.active == "kernellist"){
             $('.shutdown-button-running').removeAttr('disabled');
         }
 
@@ -732,6 +732,7 @@ define([
             select_all.prop('checked', false);
             select_all.prop('indeterminate', false);
             select_all.data('indeterminate', false);
+            $('.shutdown-button-running').attr('disabled', 'disabled');
         } else if (checked === total) {
             select_all.prop('checked', true);
             select_all.prop('indeterminate', false);

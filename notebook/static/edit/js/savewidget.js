@@ -63,7 +63,7 @@ define([
         var that = this;
         var dialog_body = $('<div/>').append(
             $("<p/>").addClass("rename-message")
-                .text('Enter a new filename:')
+                .text('输入新文件名:')
         ).append(
             $("<br/>")
         ).append(
@@ -71,7 +71,7 @@ define([
             .val(that.editor.get_filename())
         );
         var d = dialog.modal({
-            title: "Rename File",
+            title: "重命名",
             body: dialog_body,
             default_button: "Cancel",
             buttons : {

@@ -19,11 +19,10 @@ body {
 
 body {
    #left{
-   width: 192px;
+   width: 250px;
    float: left;
    }
    #right{
-       width: 1110px;
        float: right;
    }
 }
@@ -231,8 +230,8 @@ div#left ul li {
 }
 
 div.data-table{
-    width: 192px;
-    height: 21px;
+    width: 100%;
+    height: 40px;
     &:hover {
         cursor: pointer;
     }
@@ -243,9 +242,10 @@ div.data-table{
 
 div.data-detail, div#des-data {
     & > ul > li {
-        padding: 8px 0px 8px 40px;
+        padding: 8px 0px 8px 0px;
         text-align: left;
         color: #666666;
+        padding-left: 40px
     }
     & > ul > li:hover{
         cursor: pointer;
@@ -257,6 +257,8 @@ div.data-detail, div#des-data {
 .data-header-title, .data-header-img {
   float: left;
   height: 20px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 
 .data-header-title{
@@ -293,40 +295,43 @@ div#des-title a{
 
 div#left a{
     text-decoration: none;
-    color: #000;
+    color: #333;
     &.ctext{
         display: block;
         float: left;
-        padding-left: 40px;
+        padding-left: 30px;
     }
 }
 
 div#left{
     border-right: 2px solid #cccccc;
     height: 100%;
+     overflow-y:auto;
 }
 
 div.des-list {
+    padding-top: 10px;
     &>span{
         display: block;
-        padding-left: 40px;
+        padding-left: 20px;
+        text-align: left;
         float: left;
         width: 80%;
+        color: #333;
     }
-
 }
 
 div#right{
-    width: calc(~'100% - 192px');
+    width: calc(~'100% - 250px');
 }
 
 div.dialog{
   width: 350px;
   height: 152px;
   background-color: white;
-  border: 1px solid #000000;
+  border: 1px solid #999999;
   top: 70px;
-  left: 195px;
+  left: 250px;
   z-index: 5;
   position: fixed;
   display: none;
@@ -347,6 +352,7 @@ div.dialog{
   display: inline-block;
   width: 100%;
   text-align: center;
+  padding-top: 5px;
 }
 
 .dialog .dialog-header .img{
@@ -383,12 +389,40 @@ div.dialog-content ul li{
         display: block;
         float: left;
     }
-    &>span#example{
-        width: 284px;
-        height: 55px;
+    &>textarea#example{
+        // width: 284px;
+        // height: 55px;
+        // padding: 10px;
+        // content-align: center;
+        // display: block;
+        // float: left;
+
+        width: 320px;
+        height: 100px;
+        border-bottom: 0px solid;
+        border-left: 0px solid;
+        border-right: 0px solid;
+        border-top: 0px solid;
+        resize: none;
         padding: 10px;
-        content-align: center;
         display: block;
         float: left;
+        content-align: center;
     }
 }
+
+div #dialog-div {
+    width: 400px;
+    height: 230px;
+}
+
+//div #dialog-div div.dialog-content ui li textarea#example{
+//    width: 300px;
+//    BORDER-BOTTOM: 0px solid;
+//    BORDER-LEFT: 0px solid;
+//    BORDER-RIGHT: 0px solid;
+//    BORDER-TOP: 0px solid;
+//    resize: none;
+//    padding-left: 10px;
+//}
+
